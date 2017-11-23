@@ -1,4 +1,4 @@
-defmodule RedisProvider.BasicTypesAdapter do
+defmodule RedisProvider.BasicAdapter do
 
   def set(key, value) do
     ["SET", key, value]

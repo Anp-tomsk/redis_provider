@@ -25,4 +25,11 @@ defmodule RedisProviderTest do
     assert {:ok, _} = RedisProvider.push(conn, "list:key",  Enum.to_list(1..5))
     assert {:ok, ["1", "2", "3", "4", "5"]} = RedisProvider.get_list(conn, "list:key")
   end
+
+  test "push map and get it return map" do
+    {:ok, conn} = RedisProvider.start_link()
+    assert {:ok, _} = RedisProvider.push(conn, "map:key", %{"first" => "1", "second" => "2"})
+    assert {:ok, %{"first" => "1", "second" => "2"}} = RedisProvider.get_map(conn, "map:key")
+  end
+  
 end
