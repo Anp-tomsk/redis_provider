@@ -21,6 +21,6 @@ defmodule RedisProvider.MapAdapter do
 
   def key_values([], _map), do: []
   def key_values([head| tail], map), do:
-    [head, map[head] | key_values(tail, map)]
+    [head, Map.get(map, head) | key_values(tail, map)]
 
 end

@@ -14,6 +14,7 @@ defmodule RedisProvider.Mixfile do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
+      mod: {RedisProvider.Application, []},
       extra_applications: [:logger]
     ]
   end
